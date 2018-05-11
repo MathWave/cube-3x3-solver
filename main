@@ -243,62 +243,98 @@ public:
 
 std::string FindTheWay(cube c)
 {
-    std::queue<std::pair<cube, std::string>> q;
-    q.push({c, ""});
+    std::queue<std::pair<cube, std::pair<int, std::string>>> q;
+    q.push({c, {100, ""}});
     while (1)
     {
         if (q.front().first.solved())
-            return q.front().second;
+            return q.front().second.second;
         
         cube tmp;
         
-        tmp = q.front().first;
-        tmp.RotateUp();
-        q.push({tmp, q.front().second + "U "});
+        if (q.front().second.first != 6)
+        {
+            tmp = q.front().first;
+            tmp.RotateUp();
+            q.push({tmp, {0, q.front().second.second + "U "}});
+        }
         
-        tmp = q.front().first;
-        tmp.RotateDown();
-        q.push({tmp, q.front().second + "D "});
+        if (q.front().second.first != 7)
+        {
+            tmp = q.front().first;
+            tmp.RotateDown();
+            q.push({tmp, {1, q.front().second.second + "D "}});
+        }
         
-        tmp = q.front().first;
-        tmp.RotateFront();
-        q.push({tmp, q.front().second + "F "});
+        if (q.front().second.first != 8)
+        {
+            tmp = q.front().first;
+            tmp.RotateFront();
+            q.push({tmp, {2, q.front().second.second + "F "}});
+        }
         
-        tmp = q.front().first;
-        tmp.RotateBack();
-        q.push({tmp, q.front().second + "B "});
+        if (q.front().second.first != 9)
+        {
+            tmp = q.front().first;
+            tmp.RotateBack();
+            q.push({tmp, {3, q.front().second.second + "B "}});
+        }
         
-        tmp = q.front().first;
-        tmp.RotateRight();
-        q.push({tmp, q.front().second + "R "});
+        if (q.front().second.first != 10)
+        {
+            tmp = q.front().first;
+            tmp.RotateRight();
+            q.push({tmp, {4, q.front().second.second + "R "}});
+        }
         
-        tmp = q.front().first;
-        tmp.RotateLeft();
-        q.push({tmp, q.front().second + "L "});
+        if (q.front().second.first != 11)
+        {
+            tmp = q.front().first;
+            tmp.RotateLeft();
+            q.push({tmp, {5, q.front().second.second + "L "}});
+        }
         
-        tmp = q.front().first;
-        tmp.RotateUpDash();
-        q.push({tmp, q.front().second + "U' "});
+        if (q.front().second.first != 0)
+        {
+            tmp = q.front().first;
+            tmp.RotateUpDash();
+            q.push({tmp, {6, q.front().second.second + "U' "}});
+        }
         
-        tmp = q.front().first;
-        tmp.RotateDownDash();
-        q.push({tmp, q.front().second + "D' "});
+        if (q.front().second.first != 1)
+        {
+            tmp = q.front().first;
+            tmp.RotateDownDash();
+            q.push({tmp, {7, q.front().second.second + "D' "}});
+        }
         
-        tmp = q.front().first;
-        tmp.RotateFrontDash();
-        q.push({tmp, q.front().second + "F' "});
+        if (q.front().second.first != 2)
+        {
+            tmp = q.front().first;
+            tmp.RotateFrontDash();
+            q.push({tmp, {8, q.front().second.second + "F' "}});
+        }
         
-        tmp = q.front().first;
-        tmp.RotateBackDash();
-        q.push({tmp, q.front().second + "B' "});
+        if (q.front().second.first != 3)
+        {
+            tmp = q.front().first;
+            tmp.RotateBackDash();
+            q.push({tmp, {9, q.front().second.second + "B' "}});
+        }
         
-        tmp = q.front().first;
-        tmp.RotateRightDash();
-        q.push({tmp, q.front().second + "R' "});
+        if (q.front().second.first != 4)
+        {
+            tmp = q.front().first;
+            tmp.RotateRightDash();
+            q.push({tmp, {10, q.front().second.second + "R' "}});
+        }
         
-        tmp = q.front().first;
-        tmp.RotateLeftDash();
-        q.push({tmp, q.front().second + "L' "});
+        if (q.front().second.first != 5)
+        {
+            tmp = q.front().first;
+            tmp.RotateLeftDash();
+            q.push({tmp, {11, q.front().second.second + "L' "}});
+        }
         
         q.pop();
     }
