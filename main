@@ -59,7 +59,7 @@ public:
     
     void SetColors()
     {
-        std::string colors [6] = {"WHITE", "YELLOW", "GREEN", "BLUE", "RED", "ORANGE"};
+        std::string colors [6] = {"WHITE ", "YELLOW", "GREEN ", "BLUE  ", "RED   ", "ORANGE"};
         char c [6] = {'w', 'y', 'g', 'b', 'r', 'o'};
         char first, second, third, forth, fifth, sixth, seventh, eighth;
         for (int i = 0; i < 6; i++)
@@ -309,7 +309,7 @@ int main()
     cube c;
     c.SetColors();
     long start = time(0);
-    std::cout << "The solution algorithm is: " << FindTheWay(c) << std::endl;
+    std::cout << std::endl << "The solution algorithm is: " << FindTheWay(c) << std::endl;
     long end = time(0);
     std::cout << "Needed time: " << end - start  << " seconds" << std::endl;
 }
